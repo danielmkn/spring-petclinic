@@ -22,7 +22,11 @@ java {
 }
 
 repositories {
-  mavenCentral()
+  //mavenCentral()
+  jcenter()
+  // I decided to make build with maven because of this reason:
+  //'jcenter' is deprecated
+  //Builds will no longer be able to resolve artifacts from JCenter after February 1st, 2022
 }
 
 ext.checkstyleVersion = "10.20.1"
