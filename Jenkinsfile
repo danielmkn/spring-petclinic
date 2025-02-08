@@ -35,7 +35,7 @@ pipeline {
             steps {
                 script {
                     withCredentials([string(credentialsId: 'artifactory-credentials', variable: 'DOCKER_PASS')]) {
-                        sh "echo $DOCKER_PASS | docker login partnership-petclinic.jfrog.io -u danielmi --password-stdin"
+                        sh('echo $DOCKER_PASS | docker login partnership-petclinic.jfrog.io -u danielmi --password-stdin')
                     }
                 }
             }
