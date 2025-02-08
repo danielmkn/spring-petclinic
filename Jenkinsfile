@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         DOCKER_IMAGE = 'partnership-petclinic.jfrog.io/petclinic'
-        DOCKER_TAG = '0.0.1'
+        DOCKER_TAG = params.DOCKER_TAG
     }
 
     stages {
