@@ -1,9 +1,12 @@
 pipeline {
     agent any
 
+    parameters {
+        string(name: 'DOCKER_TAG', defaultValue: 'latest', description: 'Docker tag for the image')
+    }
+
     environment {
         DOCKER_IMAGE = 'partnership-petclinic.jfrog.io/petclinic'
-        DOCKER_TAG = params.DOCKER_TAG
     }
 
     stages {
@@ -26,7 +29,8 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    sh "docker build -t ${DOCKER_IMAGE}:${DOCKER_TAG} ."
+                    def dockerTag = params.DOCKER_TAG
+                    sh "docker build -t ${DOCKER_IMAGE}:${dockerTag} ."
                 }
             }
         }
@@ -44,7 +48,8 @@ pipeline {
         stage('Push Docker Image') {
             steps {
                 script {
-                    sh "docker push ${DOCKER_IMAGE}:${DOCKER_TAG}"
+                    def dockerTag = params.DOCKER_TAG
+                    sh "docker push ${DOCKER_IMAGE}:${dockerTag}"
                 }
             }
         }
@@ -52,7 +57,8 @@ pipeline {
         stage('Cleanup') {
             steps {
                 script {
-                    sh "docker rmi ${DOCKER_IMAGE}:${DOCKER_TAG}"
+                    def dockerTag = params.DOCKER_TAG
+                    sh "docker rmi ${DOCKER_IMAGE}:${dockerTag}"
                 }
             }
         }
