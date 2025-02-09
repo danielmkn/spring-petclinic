@@ -301,17 +301,15 @@
       <snapshots>
         <enabled>true</enabled>
       </snapshots>
-      <id>spring-snapshots</id>
-      <name>Spring Snapshots</name>
-      <url>https://repo.spring.io/snapshot</url>
+      <id>jcenter-snapshots</id>
+      <url>https://jcenter.bintray.com/snapshot</url>
     </repository>
     <repository>
       <snapshots>
         <enabled>false</enabled>
       </snapshots>
-      <id>spring-milestones</id>
-      <name>Spring Milestones</name>
-      <url>https://repo.spring.io/milestone</url>
+      <id>jcenter-milestones</id>
+      <url>https://jcenter.bintray.com/milestone</url>
     </repository>
   </repositories>
   <pluginRepositories>
@@ -319,17 +317,15 @@
       <snapshots>
         <enabled>true</enabled>
       </snapshots>
-      <id>spring-snapshots</id>
-      <name>Spring Snapshots</name>
-      <url>https://repo.spring.io/snapshot</url>
+      <id>jcenter-snapshots</id>
+      <url>https://jcenter.bintray.com/snapshot</url>
     </pluginRepository>
     <pluginRepository>
       <snapshots>
         <enabled>false</enabled>
       </snapshots>
-      <id>spring-milestones</id>
-      <name>Spring Milestones</name>
-      <url>https://repo.spring.io/milestone</url>
+      <id>jcenter-milestones</id>
+      <url>https://jcenter.bintray.com/snapshot</url>
     </pluginRepository>
   </pluginRepositories>
 
