@@ -12,7 +12,7 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-                git branch: 'tech-task', url: 'https://github.com/danielmkn/spring-petclinic.git'
+                git branch: 'main', url: 'https://github.com/danielmkn/spring-petclinic.git'
                 echo "Cloned successfully"
             }
         }

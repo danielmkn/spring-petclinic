@@ -1,24 +1,25 @@
-FROM eclipse-temurin:23
+# Build stage
+FROM eclipse-temurin:23 AS build
 
-# Set the working directory inside the container
 WORKDIR /app
 COPY .mvn/ .mvn
 COPY mvnw pom.xml ./
 
-# Download project dependencies using 4 threads
 RUN ./mvnw dependency:resolve -B -T 4C
 
-# Copy the project source code
 COPY src ./src
 
 # Build the project, skip tests to increase speed
 RUN ./mvnw package -DskipTests
 
-#
-COPY target ./target
+# Runtime stage
+FROM openjdk:23-jdk-slim AS runtime
 
-# Expose the application port (if needed)
+WORKDIR /app
+COPY --from=build /app/target /app/target
+
+# Expose application port
 EXPOSE 8080
 
-# Command to run the application
+# Run the application
 CMD ["java", "-jar", "target/spring-petclinic-3.4.0-SNAPSHOT.jar"]
