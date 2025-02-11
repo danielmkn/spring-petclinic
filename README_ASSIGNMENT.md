@@ -44,10 +44,24 @@ To run e2e flow please follow the steps:
 
 As a result of teh pipeline execution, image will be pushed to the repository in Partnership Artifactory instance: `partnership-petclinic.jfrog.io/petclinic:<TAG>` 
 
-# Run application in Docker container
+### Run application in Docker container
 
 To run the application locally, execute the following command: 
 ```
 docker run -p 8080:8080 partnership-petclinic.jfrog.io/petclinic:<TAG>
 ```
 Application will be running on `localhost:8080`. 
+
+### Unpack application form tar file petclinic.tar, attached to the assignment
+
+```
+docker load -i petclinic.tar
+```
+Valid response should be `Loaded image: partnership-petclinic.jfrog.io/petclinic:0.0.3`
+
+After the image is unpacked, please run it using the following command:
+
+```
+docker run -p 8081:8080 partnership-petclinic.jfrog.io/petclinic:0.0.3
+```
+
