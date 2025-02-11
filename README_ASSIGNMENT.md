@@ -62,6 +62,6 @@ Valid response should be `Loaded image: partnership-petclinic.jfrog.io/petclinic
 After the image is unpacked, please run it using the following command:
 
 ```
-docker run -p 8081:8080 partnership-petclinic.jfrog.io/petclinic:0.0.3
+docker run -p 8080:8080 partnership-petclinic.jfrog.io/petclinic:0.0.3
 ```
 
